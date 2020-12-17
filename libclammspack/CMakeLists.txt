@@ -63,12 +63,16 @@ target_include_directories( mspack_obj
     PUBLIC  "${CMAKE_CURRENT_SOURCE_DIR}/mspack" )
 
 # The mspack shared library.
-add_library( mspack SHARED )
-set_target_properties(mspack PROPERTIES
-    VERSION "0.8.0"
-    SOVERSION 0)
-if(WIN32)
-    set_target_properties(mspack PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+if(ENABLE_SHARED_LIB)
+    add_library( mspack SHARED )
+    set_target_properties(mspack PROPERTIES
+        VERSION "0.8.0"
+        SOVERSION 0)
+    if(WIN32)
+        set_target_properties(mspack PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
+    endif()
+else()
+    add_library( mspack STATIC )
 endif()
 target_sources( mspack
     PUBLIC
