@@ -616,6 +616,9 @@ if(ENABLE_STATIC_LIB)
     endif()
 
     add_library( ClamAV::libclamav_static ALIAS clamav_static )
+    if(NOT ENABLE_SHARED_LIB)
+        add_library( ClamAV::libclamav ALIAS clamav_static )
+    endif()
 endif()
 
 install(
