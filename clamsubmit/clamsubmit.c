@@ -11,7 +11,7 @@
 #endif
 
 #include <curl/curl.h>
-#include <json-c/json.h>
+#include <json.h>
 
 #include "target.h"
 
