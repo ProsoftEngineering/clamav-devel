@@ -54,6 +54,8 @@ if(ENABLE_SHARED_LIB)
     # The libfreshclam shared library.
     add_library( freshclam SHARED )
     target_sources( freshclam
+        PRIVATE
+            "../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
         PUBLIC
             libfreshclam.h )
     target_link_libraries( freshclam
@@ -78,6 +80,8 @@ if(ENABLE_STATIC_LIB)
     # The freshclam static library.
     add_library(freshclam_static STATIC)
     target_sources(freshclam_static
+        PRIVATE
+            "../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
         PUBLIC
             libfreshclam.h )
     target_link_libraries(freshclam_static

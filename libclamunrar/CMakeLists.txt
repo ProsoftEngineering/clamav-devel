@@ -78,6 +78,8 @@ set_target_properties(clamunrar PROPERTIES
     VERSION "5.7.5"
     SOVERSION 5)
 target_sources( clamunrar
+	PRIVATE
+		"../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
     PUBLIC
         "rar.hpp"
         "dll.hpp" )

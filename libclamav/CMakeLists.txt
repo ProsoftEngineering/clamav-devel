@@ -537,6 +537,8 @@ if(ENABLE_SHARED_LIB)
         VERSION ${LIBCLAMAV_VERSION}
         SOVERSION ${LIBCLAMAV_SOVERSION})
     target_sources( clamav
+        PRIVATE
+            "../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
         PUBLIC
             clamav.h )
     target_link_libraries( clamav
@@ -582,6 +584,8 @@ if(ENABLE_STATIC_LIB)
     # The clamav static library.
     add_library(clamav_static STATIC)
     target_sources(clamav_static
+        PRIVATE
+            "../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
         PUBLIC
             clamav.h )
     target_link_libraries(clamav_static
