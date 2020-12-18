@@ -76,6 +76,7 @@ endif()
 
 # The shared static library.
 add_library( shared STATIC )
+target_sources( shared PRIVATE "../cmake/XcodeDummy.c" ) # Xcode generator needs a source file or the target will be ignored
 
 target_link_libraries( shared
     PUBLIC

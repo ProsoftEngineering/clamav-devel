@@ -71,6 +71,8 @@ if(WIN32)
     set_target_properties(mspack PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 target_sources( mspack
+    PRIVATE
+        "../cmake/XcodeDummy.c" # Xcode generator needs a source file or the target will be ignored
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/mspack/mspack.h" )
 if(WIN32)
